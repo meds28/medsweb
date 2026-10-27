@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medsfood — Kantin Kejujuran Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Lilita+One&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff4d6;--ink:#1a1a1a;--card:#fff;--g:#6fdc9c;--pk:#ff9ecb;--sk:#8fd3ff;--yl:#ffd84d;--or:#ff9f5a;--lv:#c7b3ff;--bad:#ff6b6b;--mut:#5b5b5b;--bn:cubic-bezier(.3,1.6,.5,1);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;overflow-x:hidden;color:var(--ink);background:radial-gradient(#1a1a1a14 1.5px,transparent 2px) 0 0/22px 22px,var(--bg);font:16px/1.5 "Plus Jakarta Sans",system-ui,Arial,sans-serif;font-weight:500}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+#bar{position:fixed;top:0;left:0;right:0;height:6px;background:var(--pk);border-bottom:2px solid var(--ink);transform:scaleX(0);transform-origin:left;z-index:30}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:4px solid var(--ink);z-index:5}
+nav .wrap{display:flex;align-items:center;min-height:62px;gap:4px}
+.logo{font:400 22px "Lilita One",sans-serif;background:var(--yl);color:var(--ink);border:3px solid var(--ink);border-radius:14px;box-shadow:3px 3px 0 var(--ink);padding:2px 14px;transform:rotate(-2deg);cursor:pointer;margin-right:auto}
+.logo:hover,.hero h1:hover{animation:wob .45s ease}
+.links{display:flex;gap:4px;align-items:center}
+.links button,.ham{background:none;border:3px solid transparent;border-radius:99px;color:var(--ink);font:800 14px inherit;font-family:inherit;padding:6px 14px;cursor:pointer;min-height:44px;transition:background .15s}
+.links button:hover{background:var(--sk)}.links .on{background:var(--pk);border-color:var(--ink)}.ham{display:none;font-size:22px}
+@media(max-width:760px){.ham{display:block}.links{display:none;position:absolute;top:62px;left:0;right:0;background:var(--card);flex-direction:column;align-items:stretch;padding:10px 20px;border-bottom:4px solid var(--ink)}.links.open{display:flex}}
+.btn{background:var(--g);color:var(--ink);border:3px solid var(--ink);border-radius:16px;padding:12px 22px;font:400 17px "Lilita One",sans-serif;letter-spacing:.03em;box-shadow:4px 4px 0 var(--ink);cursor:pointer;min-height:46px;transition:transform .2s var(--bn),box-shadow .2s var(--bn)}
+.btn:hover{transform:translate(-3px,-3px) rotate(-1deg);box-shadow:7px 7px 0 var(--ink)}.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:2px 2px 0 var(--ink)}.btn.o{background:var(--card)}
+table .btn{padding:4px 12px;min-height:38px;box-shadow:2px 2px 0 var(--ink);font-size:15px}
+.lnk{background:none;border:0;color:var(--ink);font:400 18px "Lilita One",sans-serif;text-decoration:underline wavy var(--pk);text-underline-offset:6px;text-decoration-thickness:3px;cursor:pointer;min-height:44px}
+.cartb{position:relative}.cartb i{position:absolute;top:0;right:0;background:var(--pk);border:2px solid var(--ink);border-radius:99px;font:800 10px/1 inherit;font-family:inherit;padding:3px 6px}
+h1,h2{font-family:"Lilita One",Impact,sans-serif;font-weight:400;letter-spacing:.01em}
+h1{font-size:clamp(44px,10vw,96px);line-height:.98;margin:.2em 0;text-shadow:4px 4px 0 var(--pk)}h2{font-size:clamp(30px,5.5vw,50px);line-height:1;margin:1.5em 0 .5em;text-shadow:3px 3px 0 var(--sk)}
+.c{text-align:center;justify-content:center}.card.c{text-align:left}
+.sub{font-size:clamp(17px,2.4vw,21px);max-width:600px;margin:16px auto 24px;font-weight:600}
+.hero{padding:48px 0 24px;text-align:center}
+.tag{display:inline-block;background:var(--lv);border:3px solid var(--ink);border-radius:99px;box-shadow:3px 3px 0 var(--ink);padding:2px 14px;font:800 13px inherit;font-family:inherit;transform:rotate(-3deg)}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.ln{display:block;overflow:hidden;padding:0 .1em .12em 0}.ln>span{display:block;transform:translateY(115%);animation:rise .7s var(--bn) forwards}
+.ln:nth-child(2)>span{animation-delay:.1s}.ln:nth-child(3)>span{animation-delay:.2s}
+mark{background:var(--yl);color:var(--ink);padding:0 .15em;border:3px solid var(--ink);border-radius:14px;text-shadow:none;display:inline-block;transform:rotate(-2deg)}
+.mqw{margin:8px 0 56px}.mq{overflow:hidden;border:4px solid var(--ink);border-radius:16px;background:var(--yl);transform:rotate(-1.2deg);box-shadow:4px 4px 0 var(--ink)}
+.mq>div{display:flex;width:max-content;animation:mq 26s linear infinite}.mq span{padding:8px 18px;font:400 18px "Lilita One",sans-serif;white-space:nowrap}
+.stage{position:relative}.bw{position:absolute;right:-6px;top:-46px;z-index:2}
+.burst{width:104px;height:104px;border-radius:50%;background:var(--pk);border:4px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:grid;place-content:center;text-align:center;font:400 20px/1 "Lilita One",sans-serif;transform:rotate(12deg)}.burst b{font-weight:400;font-size:22px}
+.ratio{position:relative;aspect-ratio:16/9;background:#111;border:4px solid var(--ink);border-radius:24px;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.ratio iframe,.ov{position:absolute;inset:0;width:100%;height:100%;border:0}.ov{display:grid;place-items:center;color:#ddd;text-align:center;padding:16px}
+.mut{color:var(--mut);font-size:14px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:22px}.grid.big{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:4px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);padding:16px;transition:transform .25s var(--bn),box-shadow .25s var(--bn)}
+.grid>.card:hover{transform:translate(-3px,-5px) rotate(-1deg);box-shadow:10px 10px 0 var(--ink)}
+.pimg{border:3px solid var(--ink);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--yl)}.grid>:nth-child(3n+2) .pimg{background:var(--sk)}.grid>:nth-child(3n) .pimg{background:var(--pk)}
+.pimg svg{width:100%;height:140px;transition:transform .3s var(--bn)}.big .pimg svg{height:190px}.card:hover .pimg svg{transform:scale(1.1) rotate(-5deg)}
+.price{font:400 20px "Lilita One",sans-serif}.oos{color:#d63b3b;font-weight:800;font-size:13px}
+input,select{font:inherit;font-weight:600;font-size:16px;padding:10px 12px;border:3px solid var(--ink);border-radius:14px;background:var(--card);color:var(--ink);min-height:46px}input:focus,select:focus{outline:none;box-shadow:4px 4px 0 var(--pk)}
+label{font:800 13px inherit;font-family:inherit;color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:56px 0;text-align:center}.stats>div{background:var(--card);border:4px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);padding:16px 8px}
+.stats>:nth-child(1){background:var(--sk)}.stats>:nth-child(2){background:var(--pk)}.stats>:nth-child(3){background:var(--yl)}.stats .mut{color:var(--ink)}.stats h1{margin:0;text-shadow:3px 3px 0 #fff}
+.bubble{position:relative;background:var(--card);border:4px solid var(--ink);border-radius:26px;box-shadow:6px 6px 0 var(--ink);padding:18px 22px;font:400 20px/1.3 "Lilita One",sans-serif;text-align:center;margin:20px 0 44px}
+.bubble::after{content:"";position:absolute;left:12%;bottom:-16px;width:24px;height:24px;background:var(--card);border-right:4px solid var(--ink);border-bottom:4px solid var(--ink);transform:rotate(45deg)}
+.banner{background:var(--yl);border:3px solid var(--ink);border-radius:14px;padding:10px 16px;font-weight:800;font-size:14px;margin:14px 0}
+table{width:100%;border-collapse:collapse}td,th{padding:10px 8px;border-bottom:2px dashed var(--ink);text-align:left;font-size:15px}.ti svg{width:34px;height:34px;vertical-align:middle}
+.st{border:2px solid var(--ink);border-radius:99px;padding:2px 10px;font:800 11px inherit;font-family:inherit;background:var(--g)}.st.x{background:var(--bad)}.st.w{background:var(--yl)}
+.qr{width:220px;height:220px;margin:12px auto;border:4px solid var(--ink);border-radius:22px;background:#fff;display:grid;place-items:center;font-weight:800;padding:8px}.qr svg{width:100%;height:100%;display:block}
+.ok{width:120px;height:120px;animation:boing .7s var(--bn) both}.ok circle{fill:var(--g);stroke:var(--ink);stroke-width:4}
+.ok path{fill:none;stroke:var(--ink);stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:80;stroke-dashoffset:80;animation:draw .5s .35s ease-out forwards}
+.party{position:fixed;left:50%;top:36%;z-index:50;pointer-events:none}
+.party i{position:absolute;width:13px;height:13px;border:2px solid var(--ink);animation:conf 1.5s cubic-bezier(.1,.7,.3,1) forwards}
+#toast{position:fixed;bottom:calc(92px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,16px) scale(.9);background:var(--card);border:3px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:10px 18px;font-weight:800;font-size:14px;opacity:0;transition:opacity .2s,transform .35s var(--bn);pointer-events:none;z-index:60;max-width:92vw}
+#cbar{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,170%);background:var(--g);border:3px solid var(--ink);border-radius:99px;box-shadow:5px 5px 0 var(--ink);padding:12px 24px;font:400 18px "Lilita One",sans-serif;cursor:pointer;z-index:20;transition:transform .45s var(--bn);white-space:nowrap}
+#cbar.on{transform:translate(-50%,0)}#cbar b{margin-left:10px;font-weight:400}
+footer{border-top:4px solid var(--ink);margin-top:60px;padding:24px 0 100px;font-weight:700;font-size:13px}
+.chips{display:flex;gap:10px;overflow-x:auto;padding:4px 6px 18px;scrollbar-width:none}
+.chip{flex:none;background:var(--card);color:var(--ink);border:3px solid var(--ink);border-radius:99px;padding:8px 16px;font:800 13px inherit;font-family:inherit;box-shadow:3px 3px 0 var(--ink);cursor:pointer;min-height:44px;transition:transform .2s var(--bn),box-shadow .2s}
+.chip:hover{transform:translate(-1px,-2px)}.chip.on{background:var(--g);box-shadow:none;transform:translate(3px,3px)}
+.fl{margin:28px 0 12px;font:400 28px "Lilita One",sans-serif;text-shadow:2px 2px 0 var(--lv)}
+.tiles{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.tile{text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:6px;min-height:160px}
+.tiles>:nth-child(4n+1){background:var(--pk)}.tiles>:nth-child(4n+2){background:var(--sk)}.tiles>:nth-child(4n+3){background:var(--yl)}.tiles>:nth-child(4n+4){background:var(--g)}
+.tile .mut{color:var(--ink);font-weight:800}.tile strong{font:400 28px/1 "Lilita One",sans-serif}.tile .lnkt{margin-top:auto;font-weight:800;font-size:14px}
+@keyframes rise{to{transform:none}}@keyframes mq{to{transform:translateX(-50%)}}@keyframes pop{50%{transform:scale(1.7) rotate(10deg)}}
+@keyframes wob{25%{transform:rotate(-2deg) scale(1.03)}75%{transform:rotate(2deg) scale(1.03)}}
+@keyframes boing{from{transform:scale(0) rotate(-40deg)}}@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes conf{50%{transform:translate(var(--x),var(--y)) rotate(var(--r))}100%{transform:translate(var(--x),calc(var(--y) + 420px)) rotate(calc(var(--r)*1.6));opacity:0}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .5s,transform .5s var(--bn)}.rv.in{opacity:1;transform:none}
+.nk .rv{opacity:1;transform:none;transition:none}.pop{animation:pop .35s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.ln>span{transform:none}.ok path{stroke-dashoffset:0}}
+@media(max-width:600px){.burst{width:80px;height:80px;font-size:16px}.bw{top:-36px}.stats{grid-template-columns:1fr}}
+@media print{nav,footer,.noprint,#bar,#cbar{display:none}}
+.logo{font:italic 700 26px "Playfair Display",Georgia,serif;letter-spacing:.03em;background:var(--ink);color:var(--yl);box-shadow:3px 3px 0 var(--pk);padding:2px 16px 4px}
+.brand{font:italic 700 18px "Playfair Display",Georgia,serif}
+textarea{font:inherit;font-weight:600;padding:10px 12px;border:3px solid var(--ink);border-radius:14px;background:var(--card);color:var(--ink);resize:vertical}textarea:focus{outline:none;box-shadow:4px 4px 0 var(--pk)}
+.ti img{width:34px;height:34px;object-fit:cover;vertical-align:middle;border-radius:6px}.big .pimg img{height:190px!important}
+.s4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.s4 h1{font-size:clamp(26px,5vw,40px)}.stats>:nth-child(4){background:var(--g)}
+.admgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:22px}
+.bars{display:grid;gap:12px}.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-weight:700;font-size:14px}.bar i{grid-column:1/-1;display:block;height:16px;border:3px solid var(--ink);border-radius:99px;overflow:hidden;background:var(--bg)}.bar i b{display:block;height:100%;background:var(--g);border-right:3px solid var(--ink)}
+.chart{display:flex;align-items:flex-end;gap:8px;height:170px}.chart>div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;font-size:11px;font-weight:800}.chart b{display:block;width:100%;min-height:4px;background:var(--pk);border:3px solid var(--ink);border-radius:8px 8px 0 0}
+.plus{position:fixed;right:18px;bottom:calc(88px + env(safe-area-inset-bottom,0px));z-index:21;width:64px;height:64px;border-radius:50%;background:var(--yl);border:4px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font:400 38px/1 "Lilita One",sans-serif;cursor:pointer;transition:transform .2s var(--bn)}.plus:hover{transform:rotate(90deg) scale(1.08)}.plus:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.modal{position:fixed;inset:0;background:#1a1a1a99;z-index:50;display:grid;place-items:center;padding:16px;overflow:auto}.modal .card{width:min(460px,100%);max-height:92vh;overflow:auto}
+</style>
+</head>
+<body>
+<div id="bar"></div><button id="cbar" data-go="cart" aria-label="Lihat keranjang"></button>
+<nav><div class="wrap">
+<button class="logo" data-go="home" aria-label="Medsfood beranda">Medsfood</button>
+<button class="ham" id="ham" aria-label="Buka menu">☰</button>
+<div class="links" id="links"><button data-go="home">Beranda</button><button data-go="katalog">Katalog</button><button data-go="riwayat">Riwayat</button><button data-go="kontak">Kontak</button><button data-go="admin">Admin</button><button class="cartb" data-go="cart" aria-label="Keranjang">🛒<i id="cc">0</i></button></div>
+</div></nav>
+<main class="wrap" id="app"></main>
+<footer><div class="wrap"><span class="brand">Medsfood</span> — Ambil dengan jujur, bayar dengan tanggung jawab.<br>Prototipe: pembayaran masih simulasi, belum terhubung ke payment gateway atau database.</div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+const I={
+1:'<rect x="24" y="14" width="52" height="74" rx="8" fill="#e8590c"/><circle cx="50" cy="50" r="17" fill="#ffd43b"/><path d="M24 24h52M24 78h52" stroke="#b34700" stroke-width="3"/>',
+2:'<circle cx="50" cy="50" r="34" fill="#a0673a" stroke="#7a4a24" stroke-width="3"/><g fill="#4a2c14"><circle cx="38" cy="40" r="4"/><circle cx="58" cy="36" r="4"/><circle cx="50" cy="55" r="4"/><circle cx="36" cy="62" r="4"/><circle cx="64" cy="60" r="4"/></g>',
+3:'<ellipse cx="38" cy="54" rx="20" ry="28" fill="#d9a35f" transform="rotate(-20 38 54)"/><ellipse cx="62" cy="52" rx="20" ry="28" fill="#c58d47" transform="rotate(20 62 52)"/>',
+4:'<rect x="40" y="10" width="20" height="10" rx="3" fill="#1c7ed6"/><path d="M36 22h28l6 14v48a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6V36z" fill="#a5d8ff"/><rect x="30" y="46" width="40" height="22" fill="#1c7ed6"/>',
+5:'<rect x="28" y="16" width="44" height="72" rx="6" fill="#51cf66"/><circle cx="50" cy="52" r="14" fill="#fff"/><rect x="58" y="6" width="3" height="16" fill="#2b8a3e"/>',
+6:'<path d="M30 30l20-14 20 14v56H30z" fill="#8d5b3b"/><rect x="30" y="50" width="40" height="22" fill="#f1e4d3"/>',
+7:'<rect x="14" y="40" width="72" height="44" rx="8" fill="#e9c46a"/><ellipse cx="50" cy="40" rx="36" ry="14" fill="#ffd43b"/><circle cx="40" cy="38" r="6" fill="#fff"/><circle cx="60" cy="40" r="4" fill="#82c91e"/>',
+8:'<path d="M14 56c0-24 20-36 36-36s36 12 36 36c0 12-8 16-12 16H26c-4 0-12-4-12-16z" fill="#e0a458"/><path d="M34 34l6 10M50 30l6 12M66 34l-4 10" stroke="#b9772e" stroke-width="4" stroke-linecap="round"/>',
+9:'<g transform="rotate(35 50 50)"><rect x="42" y="8" width="16" height="70" rx="4" fill="#364fc7"/><path d="M42 78h16l-8 14z" fill="#f1c27d"/></g>',
+10:'<rect x="24" y="12" width="52" height="76" rx="6" fill="#4dabf7"/><rect x="34" y="24" width="32" height="14" rx="3" fill="#fff"/><path d="M24 12v76" stroke="#1971c2" stroke-width="6"/>',
+11:'<rect x="14" y="36" width="72" height="30" rx="8" fill="#f783ac"/><rect x="14" y="36" width="24" height="30" rx="8" fill="#3b5bdb"/>',
+12:'<rect x="26" y="22" width="48" height="64" rx="8" fill="#e7f5ff" stroke="#74c0fc" stroke-width="3"/><path d="M40 22c0-10 20-10 20 0" fill="#fff" stroke="#74c0fc" stroke-width="3"/>',
+13:'<path d="M12 52h76a38 30 0 0 1-76 0z" fill="#e8590c"/><ellipse cx="50" cy="52" rx="38" ry="8" fill="#ffd8a8"/><g fill="#c9a27a"><circle cx="36" cy="46" r="9"/><circle cx="54" cy="44" r="10"/><circle cx="68" cy="48" r="8"/></g><path d="M40 30c-4-6 4-8 0-14M58 28c-4-6 4-8 0-14" stroke="#adb5bd" stroke-width="3" fill="none" stroke-linecap="round"/>',
+14:'<g fill="#b9772e"><circle cx="34" cy="56" r="14"/><circle cx="62" cy="50" r="15"/><circle cx="48" cy="74" r="13"/></g><g fill="#e0a458"><circle cx="30" cy="51" r="4"/><circle cx="58" cy="44" r="4"/><circle cx="44" cy="69" r="4"/></g>',
+15:'<ellipse cx="50" cy="62" rx="40" ry="20" fill="#f1f3f5" stroke="#ced4da" stroke-width="3"/><ellipse cx="38" cy="58" rx="16" ry="11" fill="#fff"/><path d="M52 46c10-8 28 0 24 12-4 10-20 10-26 2z" fill="#d9822b"/>',
+16:'<path d="M28 24h44l-5 62a4 4 0 0 1-4 3H37a4 4 0 0 1-4-3z" fill="#c97a2b"/><path d="M28 24h44" stroke="#868e96" stroke-width="4"/><rect x="38" y="40" width="12" height="12" rx="2" fill="#fff" opacity=".6"/><path d="M62 8L54 40" stroke="#51cf66" stroke-width="4" stroke-linecap="round"/>',
+17:'<path d="M28 24h44l-5 62a4 4 0 0 1-4 3H37a4 4 0 0 1-4-3z" fill="#ffa94d"/><path d="M28 24h44" stroke="#868e96" stroke-width="4"/><circle cx="72" cy="26" r="11" fill="#ff922b"/><circle cx="72" cy="26" r="7" fill="#ffe8cc"/>',
+18:'<ellipse cx="50" cy="64" rx="38" ry="16" fill="#f1f3f5" stroke="#ced4da" stroke-width="3"/><path d="M20 58c10-24 20 8 30-16s20 10 30-4" stroke="#e8a33d" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="62" cy="50" r="6" fill="#e03131"/>',
+19:'<path d="M12 50h76a38 32 0 0 1-76 0z" fill="#1c7ed6"/><path d="M22 48c8-14 14 6 22-8s16 6 22-4 12 8 12 8" stroke="#ffd43b" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="62" cy="40" r="7" fill="#fff" stroke="#ffd43b" stroke-width="3"/>',
+20:'<rect x="18" y="34" width="64" height="32" rx="6" fill="#f6c177"/><path d="M18 46h64M18 56h64" stroke="#7a4a24" stroke-width="5"/>',
+21:'<path d="M34 16l-22 14 8 14 10-5v43h40V39l10 5 8-14-22-14c-3 8-9 12-16 12s-13-4-16-12z" fill="#2f9e44"/>',
+22:'<path d="M18 62c0-24 14-38 32-38s32 14 32 38z" fill="#c92a2a"/><rect x="14" y="62" width="76" height="8" rx="4" fill="#a61e1e"/>',
+23:'<path d="M30 6l20 46 20-46" stroke="#1c7ed6" stroke-width="8" fill="none"/><rect x="36" y="52" width="28" height="38" rx="5" fill="#fff" stroke="#adb5bd" stroke-width="3"/><circle cx="50" cy="66" r="6" fill="#74c0fc"/>',
+24:'<path d="M34 38c0-24 32-24 32 0" stroke="#8a6d3b" stroke-width="5" fill="none"/><rect x="20" y="36" width="60" height="54" rx="6" fill="#e9d8a6"/><circle cx="50" cy="62" r="11" fill="#2b8a3e"/>',
+25:'<path d="M16 60c10-30 56-40 70-16 6 12-14 22-34 24-20 2-38 0-36-8z" fill="#e0a458" stroke="#b9772e" stroke-width="3"/><path d="M34 52l30-12" stroke="#b9772e" stroke-width="4" stroke-linecap="round"/>',
+26:'<g fill="#f1e4d3" stroke="#d9c2a3" stroke-width="3"><circle cx="30" cy="62" r="14"/><circle cx="56" cy="56" r="15"/><circle cx="78" cy="68" r="11"/></g><path d="M24 28l56 52" stroke="#a97c50" stroke-width="3"/>'};
+const P=[
+{id:1,n:"Keripik Singkong Balado",c:"Makanan ringan",p:5000,s:20,d:"Keripik renyah pedas manis, 60 g."},
+{id:2,n:"Biskuit Cokelat",c:"Makanan ringan",p:3000,s:35,d:"Biskuit isi krim cokelat."},
+{id:3,n:"Kacang Garing",c:"Makanan ringan",p:4000,s:0,d:"Kacang tanah panggang gurih."},
+{id:4,n:"Air Mineral 600 ml",c:"Minuman",p:3500,s:40,d:"Air mineral dingin."},
+{id:5,n:"Teh Kotak Jasmine",c:"Minuman",p:5000,s:18,d:"Teh melati manis 250 ml."},
+{id:6,n:"Susu Cokelat UHT",c:"Minuman",p:6000,s:12,d:"Susu cokelat 200 ml."},
+{id:7,n:"Nasi Kuning Kotak",c:"Makanan berat",p:10000,s:8,d:"Nasi kuning, telur, orek tempe."},
+{id:8,n:"Roti Isi Keju",c:"Makanan berat",p:7000,s:10,d:"Roti lembut isi keju leleh."},
+{id:9,n:"Pulpen Gel Hitam",c:"Alat tulis",p:4000,s:25,d:"Pulpen gel 0,5 mm."},
+{id:10,n:"Buku Tulis 38 Lembar",c:"Alat tulis",p:5000,s:15,d:"Buku tulis bergaris."},
+{id:11,n:"Penghapus & Rautan",c:"Produk lainnya",p:2500,s:0,d:"Set penghapus dan rautan."},
+{id:12,n:"Tisu Saku",c:"Produk lainnya",p:2000,s:30,d:"Tisu saku isi 10 lembar."},
+{id:13,n:"Bakso Urat Kuah",c:"Makanan berat",p:10000,s:15,d:"Bakso urat kuah gurih dengan bihun."},
+{id:14,n:"Bakso Goreng (6 pcs)",c:"Makanan berat",p:6000,s:20,d:"Bakso goreng renyah dengan saus."},
+{id:15,n:"Nasi Ayam Goreng",c:"Makanan berat",p:12000,s:10,d:"Nasi, ayam goreng, lalapan, sambal."},
+{id:16,n:"Es Teh Manis",c:"Minuman",p:3000,s:30,d:"Teh manis dingin segar."},
+{id:17,n:"Es Jeruk",c:"Minuman",p:4000,s:25,d:"Jeruk peras dingin."},
+{id:18,n:"Mie Goreng Spesial",c:"Makanan berat",p:9000,s:12,d:"Mie goreng bumbu spesial, telur."},
+{id:19,n:"Mie Ayam",c:"Makanan berat",p:10000,s:10,d:"Mie ayam dengan topping ayam kecap."},
+{id:20,n:"Wafer Cokelat",c:"Makanan ringan",p:3500,s:28,d:"Wafer renyah isi krim cokelat."},
+{id:21,n:"Kaos Olahraga Sekolah",c:"Merchandise",p:55000,s:10,d:"Kaos olahraga bahan adem."},
+{id:22,n:"Topi Sekolah",c:"Merchandise",p:25000,s:8,d:"Topi resmi sekolah."},
+{id:23,n:"Lanyard Sekolah",c:"Merchandise",p:10000,s:20,d:"Tali ID card berlogo sekolah."},
+{id:24,n:"Tote Bag Medsfood",c:"Merchandise",p:30000,s:6,d:"Tas kain serbaguna."},
+{id:25,n:"Pisang Goreng",c:"Makanan ringan",p:5000,s:14,d:"Pisang goreng tepung krispi."},
+{id:26,n:"Cilok Kuah",c:"Makanan ringan",p:5000,s:16,d:"Cilok kenyal dengan kuah pedas."}];
+const CATS=["Semua",...new Set(P.map(x=>x.c))];
+const STANDS=[
+{id:"kopsis",n:"Kopsis",t:"",fl:"Lt. Bawah",d:"Alat tulis dan kebutuhan harian",ids:[9,10,11,12,4,2,1,20]},
+{id:"s1",n:"Stand 1",t:"Bakso",fl:"Lt. Bawah",d:"Bakso hangat setiap hari",ids:[13,14,4,16]},
+{id:"s2",n:"Stand 2",t:"Warteg",fl:"Lt. Bawah",d:"Nasi dan lauk ala rumah",ids:[7,15,16,17,4]},
+{id:"s3",n:"Stand 3",t:"Minuman Full",fl:"Lt. Bawah",d:"Segala jenis minuman",ids:[4,5,6,16,17]},
+{id:"s4",n:"Stand 4",t:"Mie",fl:"Lt. Atas",d:"Aneka mie hangat",ids:[18,19,16,4]},
+{id:"s5",n:"Stand 5",t:"Jajanan Ringan Kemasan",fl:"Lt. Atas",d:"Camilan kemasan favorit",ids:[1,2,3,20,5,6]},
+{id:"s6",n:"Stand 6",t:"Merchandise Sekolah",fl:"Lt. Atas",d:"Atribut dan suvenir sekolah",ids:[21,22,23,24,9,10]},
+{id:"s7",n:"Stand 7",t:"Jajanan Ringan",fl:"Lt. Atas",d:"Gorengan dan jajanan hangat",ids:[8,25,26,3,4]}];
+const HASH={"kopsis": "9246c110962f7282e55074f2caf3b23f69144bd2695239b2447c95b3fc0ac263", "s1": "7d0f4f3ff1dee7a7d8e78fbd120892fc78f68844b4bccae3c3574a1b40de88e6", "s2": "4297a0c7ee964fe1ff7c0aaec94680949b7828e359b9e212001b930b204f24d6", "s3": "05a0b351134ea9fd3fd7c97218b058296d08b96313dcbcd7f90a9e486eb39cd3", "s4": "1dfd06f848947a75f859a9d9652b18244e63543ce54339a9d4aab6454b17f402", "s5": "463453ef3858e6f10448ff9b09bff9dcaf7ad57724266fd4dd741261daa23823", "s6": "f920259c6981d1731ebe801359557c618cc36de4f560f78a47c77b437be276d8", "s7": "1d1983b376ce617a0108283aaaeb72b6745fdd7af3fa3f0a74996ff8964bd309"};
+const prim=id=>STANDS.find(s=>s.ids.includes(id)).id;
+const KONTAK={wa:"",email:""}; // isi wa: "62812xxxxxxx" atau email: "operator@sekolah.sch.id"
+function rng(s){return()=>(s=(s*1664525+1013904223)>>>0)/4294967296}
+const SALES=(()=>{const r=rng(7),a=[];STANDS.forEach(s=>{for(let d=0;d<7;d++){const n=2+Math.floor(r()*5);for(let k=0;k<n;k++)a.push({d,sid:s.id,pid:s.ids[Math.floor(Math.pow(r(),1.8)*s.ids.length)],q:1+Math.floor(r()*3)})}});return a})();
+const rows=sid=>[...SALES.filter(x=>x.sid==sid),...orders.filter(o=>o.st=="b"&&!o.demo).flatMap(o=>o.items.map(([i,q,s])=>({d:0,sid:s||prim(i),pid:i,q}))).filter(x=>x.sid==sid)];
+const stOf=id=>STANDS.filter(s=>s.ids.includes(id)).map(s=>s.n).join(", ");
+const chips=()=>[{id:"all",n:"Semua"},...STANDS].map(s=>`<button class="chip ${f.st==s.id?"on":""}" data-st="${s.id}">${s.t?s.n+" · "+s.t:s.n}</button>`).join("");
+const SK="https://sketchfab.com/models/702ca030d9e04eeca075bf08c340e153/embed?ui_theme=dark"; // ganti URL embed di sini
+const ST={w:"Menunggu Pembayaran",b:"Berhasil",k:"Kedaluwarsa",g:"Gagal",d:"Dibatalkan"};
+let cur="home",adm=null,addOpen=false,fails=0,lock=0,src={},cart={},f={q:"",c:"Semua",sort:"nama",ok:false,st:"all"},rf={st:"",dt:""},pay=null,timer=null,open=null,bp=null;
+const D=d=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4-d*864e5).toISOString().slice(0,16);
+let orders=[{no:"DEMO-0001",t:D(1).slice(0,11)+"09:12",items:[[1,2],[4,1]],st:"b",demo:1},{no:"DEMO-0002",t:D(1).slice(0,11)+"10:40",items:[[7,1]],st:"k",demo:1},{no:"DEMO-0003",t:D(0).slice(0,11)+"07:55",items:[[5,1],[2,2]],st:"b",demo:1}];
+const rp=n=>"Rp"+n.toLocaleString("id-ID"),$=s=>document.querySelector(s),pr=id=>P.find(x=>x.id==id);
+const tot=it=>it.reduce((a,[i,q])=>a+pr(i).p*q,0),cnt=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const GEN='<path d="M16 34l34-16 34 16v36L50 86 16 70z" fill="#e9c46a" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/><path d="M16 34l34 16 34-16M50 50v36" fill="none" stroke="#1a1a1a" stroke-width="3"/>';
+const img=id=>{const p=pr(id);return p.im?`<img src="${p.im}" alt="Foto ${esc(p.n)}" style="width:100%;height:140px;object-fit:cover;display:block">`:`<svg viewBox="0 0 100 100" role="img" aria-label="Ilustrasi ${esc(p.n)}">${I[id]||GEN}</svg>`};
+function toast(m){const t=$("#toast");t.textContent=m;t.style.opacity=1;t.style.transform="translate(-50%,0)";clearTimeout(t._h);t._h=setTimeout(()=>{t.style.opacity=0;t.style.transform=""},2000)}
+function add(id,d=1){const p=pr(id),n=(cart[id]||0)+d;if(n>p.s){toast("Stok "+p.n+" tidak mencukupi");return}
+ if(n<=0){delete cart[id];delete src[id]}else{cart[id]=n;if(!src[id]){const S=STANDS.find(x=>x.id==f.st);src[id]=S&&S.ids.includes(id)?S.id:prim(id)}}const cb=$("#cc");cb.textContent=cnt();cb.classList.remove("pop");void cb.offsetWidth;cb.classList.add("pop");bar();if(d>0)toast(p.n+" ditambahkan ke keranjang")}
+function pcard(p,i){return `<article class="card c" style="--i:${i}"><div class="pimg">${img(p.id)}</div><div class="mut">${p.c} · ${stOf(p.id)}</div><strong>${p.n}</strong>
+<p class="mut">${p.d}</p><p><span class="price">${rp(p.p)}</span> · ${p.s?`<span class="mut">Stok ${p.s}</span>`:`<span class="oos">Stok habis</span>`}</p>
+<button class="btn" data-add="${p.id}" ${p.s?"":"disabled"}>Tambah ke Keranjang</button></article>`}
+const PAYURL="https://meds28.github.io/medsfoodonly/payment-sukses.html";
+function qr(t){try{const q=qrcode(0,"M");q.addData(t);q.make();const n=q.getModuleCount();let d="";for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))d+=`M${c+4} ${r+4}h1v1h-1z`;return `<svg viewBox="0 0 ${n+8} ${n+8}" shape-rendering="crispEdges" role="img" aria-label="Kode QR simulasi pembayaran"><path d="${d}" fill="#000"/></svg>`}catch(e){return "QRIS simulasi"}}
+function settle(){if(!pay||pay.st!="w")return;clearInterval(timer);pay.items.forEach(([i,q])=>pr(i).s-=q);pay.st="b";cart={};src={};$("#cc").textContent=0;toast("Yeay! Pembayaran berhasil 🎉");go("cart");party()}
+function route(){const m=location.hash.match(/^#bayar-(MF-[A-Z0-9]+)-(\d+)$/);if(m&&+m[2]>0){bp={no:m[1],t:+m[2]};go("bayar");return true}return false}
+addEventListener("hashchange",route);
+addEventListener("storage",e=>{if(e.key=="mf.paid"&&e.newValue&&pay&&pay.st=="w"&&e.newValue.split("|")[0]==pay.no)settle()});
+const V={
+home(){const ok=orders.filter(o=>o.st=="b"),td=ok.filter(o=>o.t.startsWith(D(0).slice(0,10))).length,av=P.filter(x=>x.s>0).length;
+return `<section class="hero"><div class="tag">Kantin tanpa kasir</div><h1><span class="ln"><span>Belanja Mandiri.</span></span><span class="ln"><span>Kejujuran <mark>Dimulai</mark></span></span><span class="ln"><span>dari Kita.</span></span></h1>
+<p class="sub">Kantin digital yang memberi kebebasan untuk memilih, mengambil, dan membayar dengan penuh tanggung jawab.</p>
+<div class="row c"><button class="btn" data-go="katalog">Lihat Produk</button><button class="lnk" data-go="riwayat">Riwayat transaksi ›</button></div></section><div class="mqw" aria-hidden="true"><div class="mq"><div>${"<span>AMBIL DENGAN JUJUR</span><span>✦</span><span>BAYAR DENGAN TANGGUNG JAWAB</span><span>✦</span>".repeat(6)}</div></div></div>
+<div class="stage"><div class="bw" aria-hidden="true"><div class="burst">100%<b>JUJUR!</b></div></div><div class="ratio"><div class="ov" id="vload">Memuat model 3D…</div><iframe title="msfood vending machine" id="sf" allowfullscreen allow="autoplay; fullscreen; xr-spatial-tracking" src="${SK}"></iframe></div></div>
+<p class="mut c rv" style="text-align:center">Model 3D "msfood vending machine" di Sketchfab. Putar dan perbesar dengan mouse atau sentuhan.</p>
+<h2 class="c rv" style="text-align:center">Jelajahi kantin.</h2>${["Lt. Bawah","Lt. Atas"].map(fl=>`<h3 class="fl rv">${fl}</h3><div class="grid tiles rv">${STANDS.filter(s=>s.fl==fl).map(s=>`<button class="card tile" data-st="${s.id}"><span class="mut">0${STANDS.indexOf(s)+1} · ${s.t?s.n:"Koperasi"}</span><strong>${s.t||s.n}</strong><span class="mut">${s.d}</span><span class="lnkt">Lihat produk ›</span></button>`).join("")}</div>`).join("")}
+<h2 class="c rv" style="text-align:center">Favorit kantin.</h2><div class="grid big rv">${[1,5,7].map((i,k)=>pcard(pr(i),k)).join("")}</div>
+<div class="stats rv"><div><h1 data-n="${av}">0</h1><div class="mut">Produk tersedia</div></div><div><h1 data-n="${ok.length}">0</h1><div class="mut">Transaksi berhasil<br>(DATA DEMO)</div></div><div><h1 data-n="${td}">0</h1><div class="mut">Transaksi hari ini<br>(DATA DEMO)</div></div></div>
+<div class="bubble rv">Ambil dengan jujur, bayar dengan tanggung jawab!</div>`},
+katalog(){return `<h1>Katalog.</h1><div class="chips" id="chips">${chips()}</div><p class="mut" id="sinfo"></p><div class="row"><label>Cari<br><input id="q" value="${esc(f.q)}" placeholder="Cari produk…"></label>
+<label>Kategori<br><select id="fc">${CATS.map(c=>`<option ${c==f.c?"selected":""}>${c}</option>`).join("")}</select></label>
+<label>Urutkan<br><select id="fs">${[["nama","Nama A–Z"],["murah","Harga termurah"],["mahal","Harga termahal"]].map(([v,t])=>`<option value="${v}" ${v==f.sort?"selected":""}>${t}</option>`).join("")}</select></label>
+<label><input type="checkbox" id="fo" ${f.ok?"checked":""}> Hanya yang tersedia</label></div><br><div class="grid" id="grid"></div>`},
+kontak(){const ok=KONTAK.wa||KONTAK.email;return `<h1>Kontak.</h1><p class="sub" style="margin-left:0">Ada kendala dengan pembayaran, stok, atau pesananmu? Kirim pesan ke operator Medsfood.</p>${ok?"":'<div class="banner">Kontak operator belum diatur. Pesan akan disalin ke clipboard agar bisa kamu kirim manual.</div>'}
+<div class="card"><div class="row"><label>Nama<br><input id="kn" maxlength="60"></label><label>Kelas<br><input id="kk" maxlength="20" style="width:110px"></label><label>Masalah<br><select id="kj"><option>Pembayaran gagal / tertunda</option><option>Produk atau stok tidak sesuai</option><option>Bukti transaksi hilang</option><option>Saran atau lainnya</option></select></label></div><br>
+<label>No. pesanan (opsional)<br><input id="ko" maxlength="30" style="width:100%"></label><br><br><label>Pesan<br><textarea id="km" rows="4" maxlength="500" style="width:100%"></textarea></label><p class="oos" id="ke"></p><button class="btn" data-act="kirim">Kirim ke Operator</button></div>`},
+admin(){if(!adm)return `<h1>Dasbor Admin.</h1><div class="card" style="max-width:460px"><label>Toko<br><select id="as" style="width:100%">${STANDS.map(s=>`<option value="${s.id}">${s.fl} · ${s.t?s.n+" ("+s.t+")":s.n}</option>`).join("")}</select></label><br><br><label>Kata sandi<br><input id="ap" type="password" autocomplete="off" style="width:100%"></label><p class="oos" id="ae"></p><button class="btn" data-act="login">Masuk</button><p class="mut">Setiap toko punya kata sandi sendiri dari operator.</p></div>`;
+ const s=STANDS.find(x=>x.id==adm),R=rows(adm),rev=R.reduce((a,x)=>a+pr(x.pid).p*x.q,0),qty=R.reduce((a,x)=>a+x.q,0),by={};
+ R.forEach(x=>by[x.pid]=(by[x.pid]||0)+x.q);const top=Object.entries(by).sort((a,b)=>b[1]-a[1]).slice(0,5),mx=top.length?top[0][1]:1,
+ day=[6,5,4,3,2,1,0].map(d=>({d,v:R.filter(x=>x.d==d).reduce((a,x)=>a+pr(x.pid).p*x.q,0)})),dm=Math.max(1,...day.map(x=>x.v)),low=s.ids.filter(i=>pr(i).s<=5).length;
+ const fm=`<div class="modal" role="dialog" aria-label="Tambah produk"><div class="card"><h2 style="margin-top:0;font-size:32px">Tambah produk.</h2><label>Nama produk<br><input id="pn" maxlength="40" style="width:100%"></label><br><br><div class="row"><label>Kategori<br><select id="pc">${CATS.slice(1).map(c=>`<option>${c}</option>`).join("")}</select></label><label>Harga (Rp)<br><input id="pp" type="number" min="100" step="100" style="width:120px"></label><label>Stok<br><input id="ps" type="number" min="0" style="width:90px"></label></div><br><label>Deskripsi<br><input id="pd" maxlength="80" style="width:100%"></label><br><br><label>Foto (opsional, maks 1 MB)<br><input id="pf" type="file" accept="image/*" style="width:100%"></label><div class="row" style="margin-top:18px"><button class="btn" data-act="savep">Simpan</button><button class="btn o" data-act="cancelp">Batal</button></div></div></div>`;
+ return `<div class="row"><div><div class="mut">${s.fl} · ${s.n}</div><h1 style="margin:0">${s.t||"Kopsis"}.</h1></div><button class="btn o" data-act="logout" style="margin-left:auto">Keluar</button></div>
+<div class="banner">DATA DEMO: penjualan 7 hari adalah contoh. Transaksi simulasi sesi ini ikut dihitung.</div>
+<div class="stats s4"><div><h1>${rp(rev)}</h1><div class="mut">Pendapatan 7 hari</div></div><div><h1>${qty}</h1><div class="mut">Item terjual</div></div><div><h1>${R.length}</h1><div class="mut">Transaksi</div></div><div><h1>${low}</h1><div class="mut">Stok menipis (5 atau kurang)</div></div></div>
+<div class="admgrid"><div class="card"><h2 style="margin-top:0;font-size:30px">Produk laris</h2><div class="bars">${top.length?top.map(([i,q])=>`<div class="bar"><span>${pr(i).n}</span><span>${q} terjual</span><i><b style="width:${q/mx*100}%"></b></i></div>`).join(""):"<p class=mut>Belum ada penjualan.</p>"}</div></div>
+<div class="card"><h2 style="margin-top:0;font-size:30px">Penjualan 7 hari</h2><div class="chart">${day.map(x=>`<div><span>${x.v?Math.round(x.v/1000)+"k":""}</span><b style="height:${x.v/dm*68}%"></b><span>${new Date(Date.now()-x.d*864e5).toLocaleDateString("id-ID",{weekday:"short"})}</span></div>`).join("")}</div></div></div>
+<div class="card" style="margin-top:22px"><h2 style="margin-top:0;font-size:30px">Produk toko</h2><table>${s.ids.map(i=>`<tr><td>${pr(i).n}</td><td>${rp(pr(i).p)}</td><td>${pr(i).s?"Stok "+pr(i).s:'<span class="oos">Habis</span>'}</td></tr>`).join("")}</table></div>
+<button class="plus" data-act="addp" aria-label="Tambah produk">+</button>${addOpen?fm:""}`},
+cart(){if(pay)return V.pay();const it=Object.entries(cart);
+if(!it.length)return `<h1>Keranjang.</h1><div class="card c"><p>Keranjangmu masih kosong.</p><button class="btn" data-go="katalog">Pilih produk</button></div>`;
+const bad=it.some(([i,q])=>q>pr(i).s);
+return `<h1>Checkout.</h1><div class="card"><table>${it.map(([i,q])=>`<tr><td><span class="ti">${img(i)}</span> ${pr(i).n}</td><td><button class="btn o" data-d="${i},-1" aria-label="Kurangi">−</button> ${q} <button class="btn o" data-d="${i},1" aria-label="Tambah">+</button></td><td>${rp(pr(i).p*q)}</td><td><button class="btn o" data-d="${i},${-q}" aria-label="Hapus">🗑</button></td></tr>`).join("")}</table>
+<h2>Total ${rp(tot(it))}</h2><p class="mut">Ambil produk sesuai pesanan, lalu bayar total di atas. Metode: QRIS.</p><label><input type="checkbox" id="agree"> Saya sudah/akan mengambil produk sesuai pesanan ini.</label>
+<p class="mut">Konfirmasi ini bukan pengganti verifikasi pembayaran.</p>${bad?'<p class="oos">Ada produk yang melebihi stok.</p>':""}<button class="btn" id="payb" data-act="pay" disabled>Bayar Sekarang</button></div>`},
+pay(){const o=pay;return `<h1>Pembayaran QRIS.</h1><div class="banner">SIMULASI PEMBAYARAN — TIDAK ADA UANG YANG DITRANSFER</div><div class="card c">
+<div>No. pesanan <strong>${o.no}</strong></div><h2>${rp(tot(o.items))}</h2><span class="st ${o.st=="b"?"":o.st=="w"?"w":"x"}">${ST[o.st]}</span>
+${o.st=="w"?`<div class="qr">${qr(PAYURL)}</div><p class="mut" style="margin:0">Scan QR dengan kamera HP untuk membuka halaman Payment sukses. Ini simulasi, bukan QRIS bank.</p><p>Sisa waktu: <strong id="cd"></strong></p>
+<div class="row c"><button class="btn" data-act="sim-ok">Simulasikan pembayaran berhasil</button><button class="btn o" data-act="gagal">Simulasikan pembayaran gagal</button><button class="btn o" data-act="cancel">Batalkan</button></div>
+<p class="mut">Di versi produksi, status berhasil hanya berubah lewat webhook gateway yang terverifikasi.</p>`
+:`${o.st=="b"?`<svg class="ok" viewBox="0 0 100 100" role="img" aria-label="Berhasil"><circle cx="50" cy="50" r="44"/><path d="M28 52l16 16 30-34"/></svg><p><strong>Yeay, pembayaran berhasil!</strong><br>Bukti transaksi tersimpan di Riwayat.</p>`:(o.st=="g"?"<p><strong>Pembayaran gagal.</strong><br>Stok tidak berkurang. Silakan coba lagi.</p>":o.st=="k"?"<p><strong>Waktu pembayaran habis.</strong><br>Stok tidak berkurang.</p>":"<p>Transaksi tidak diselesaikan.</p>")}<button class="btn" data-act="done">Lihat Riwayat</button>`}</div>`},
+bayar(){const b=bp;return `<h1>Bayar.</h1><div class="banner">SIMULASI PEMBAYARAN — TIDAK ADA UANG YANG DITRANSFER</div><div class="card c" style="max-width:460px;margin:0 auto;text-align:center"><div>Medsfood · No. pesanan <strong>${esc(b.no)}</strong></div><h2>${rp(b.t)}</h2>${b.done?`<div><svg class="ok" viewBox="0 0 100 100" role="img" aria-label="Berhasil"><circle cx="50" cy="50" r="44"/><path d="M28 52l16 16 30-34"/></svg></div><p><strong>Pembayaran berhasil!</strong></p><div style="margin-top:14px"><button class="btn o" data-act="back">Kembali</button></div>`:`<p class="mut">Cek nomor pesanan dan total, lalu bayar.</p><button class="btn" data-act="paynow">Bayar ${rp(b.t)}</button>`}</div>`},
+riwayat(){const l=orders.filter(o=>(!rf.st||o.st==rf.st)&&(!rf.dt||o.t.startsWith(rf.dt))).reverse();
+return `<h1>Riwayat.</h1><div class="row noprint"><label>Status<br><select id="rs"><option value="">Semua</option>${Object.entries(ST).map(([k,v])=>`<option value="${k}" ${rf.st==k?"selected":""}>${v}</option>`).join("")}</select></label>
+<label>Tanggal<br><input type="date" id="rd" value="${rf.dt}"></label></div><div class="banner">Transaksi berlabel DEMO adalah contoh, bukan transaksi nyata.</div>
+${l.length?l.map(o=>`<div class="card" style="margin-bottom:12px"><div class="row"><strong>${o.no}</strong><span class="tag">${o.demo?"DEMO":"SIMULASI"}</span>
+<span class="st ${o.st=="b"?"":o.st=="w"?"w":"x"}">${ST[o.st]}</span><span class="mut">${o.t.replace("T"," ")}</span><span class="price">${rp(tot(o.items))}</span>
+<button class="btn o noprint" data-open="${o.no}">${open==o.no?"Tutup":"Detail"}</button></div>
+${open==o.no?`<table>${o.items.map(([i,q])=>`<tr><td>${pr(i).n}</td><td>${q} × ${rp(pr(i).p)}</td><td>${rp(pr(i).p*q)}</td></tr>`).join("")}</table><p class="mut">Metode: QRIS (simulasi)</p><button class="btn o noprint" onclick="print()">Cetak bukti</button>`:""}</div>`).join(""):`<div class="card c">Tidak ada transaksi yang cocok.</div>`}`}
+};
+function grid(){const S=STANDS.find(x=>x.id==f.st);let l=P.filter(p=>(!S||S.ids.includes(p.id))&&(f.c=="Semua"||p.c==f.c)&&p.n.toLowerCase().includes(f.q.toLowerCase())&&(!f.ok||p.s>0));
+l.sort((a,b)=>f.sort=="murah"?a.p-b.p:f.sort=="mahal"?b.p-a.p:a.n.localeCompare(b.n));
+$("#grid").innerHTML=l.length?l.map(pcard).join(""):`<div class="card c">Produk tidak ditemukan. Coba kata kunci atau kategori lain.</div>`;$("#sinfo").textContent=S?`${S.fl} · ${S.n}${S.t?" ("+S.t+")":""} — ${S.d}`:"Semua stand di Lt. Bawah dan Lt. Atas";}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+function go(r,k){cur=r;if(r!="cart"&&pay&&pay.st!="w")pay=null;bar();$("#links").classList.remove("open");$("#app").classList.toggle("nk",!!k);$("#app").innerHTML=V[r]();if(!k)scrollTo(0,0);
+ document.querySelectorAll(".links button[data-go]").forEach(b=>b.classList.toggle("on",b.dataset.go==r));
+ document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+ if(r=="katalog")grid();
+ if(r=="home"){document.querySelectorAll("[data-n]").forEach(el=>{const n=+el.dataset.n,t0=performance.now();(function s(t){const k=Math.min((t-t0)/900,1);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(s)})(t0)});
+  const fr=$("#sf");fr.onload=()=>{const v=$("#vload");v&&v.remove()};setTimeout(()=>{const v=$("#vload");if(v)v.innerHTML=`Model belum dapat dimuat di sini.<br><a style="color:#86efac" target="_blank" rel="noopener" href="https://sketchfab.com/models/702ca030d9e04eeca075bf08c340e153">Buka di Sketchfab</a>`},8000)}
+ if(r=="cart"&&pay&&pay.st=="w")tick()}
+function tick(){clearInterval(timer);timer=setInterval(()=>{const left=pay.exp-Date.now(),c=$("#cd");
+ if(left<=0){clearInterval(timer);pay.st="k";toast("Pembayaran kedaluwarsa");if(cur=="cart")go("cart",1);return}
+ if(c)c.textContent=Math.floor(left/60000)+":"+String(Math.floor(left/1000)%60).padStart(2,"0")},500)}
+function party(){if(rm)return;const cl=["#ff9ecb","#ffd84d","#6fdc9c","#8fd3ff","#c7b3ff","#ff9f5a"],bx=document.createElement("div");bx.className="party";
+ for(let i=0;i<36;i++){const s=document.createElement("i"),a=Math.random()*6.283,d=110+Math.random()*250;s.style.cssText=`background:${cl[i%6]};--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d-110}px;--r:${Math.random()*720-360}deg;border-radius:${i%3?"3px":"50%"}`;bx.append(s)}
+ document.body.append(bx);setTimeout(()=>bx.remove(),1700)}
+async function login(){const id=$("#as").value,pw=$("#ap").value,e=$("#ae");if(Date.now()<lock){e.textContent="Terlalu banyak percobaan. Coba lagi sebentar.";return}
+ let h="";try{h=[...new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(id+":"+pw)))].map(b=>b.toString(16).padStart(2,"0")).join("")}catch(x){e.textContent="Browser tidak mendukung verifikasi.";return}
+ if(h===HASH[id]){adm=id;fails=0;toast("Selamat datang, admin "+STANDS.find(x=>x.id==id).n);go("admin")}else{if(++fails>=5){lock=Date.now()+3e4;fails=0}e.textContent="Kata sandi salah.";$("#ap").value=""}}
+async function saveP(){const cl=x=>x.replace(/[<>&"]/g,"").trim(),n=cl($("#pn").value),pc=Math.round(+$("#pp").value),st=Math.floor(+$("#ps").value);
+ if(n.length<2||!(pc>0)||$("#ps").value===""||st<0)return toast("Lengkapi nama, harga, dan stok");
+ let im="";const f0=$("#pf").files[0];if(f0){if(f0.size>1e6)return toast("Foto maksimal 1 MB");im=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(f0)})}
+ const id=Math.max(...P.map(p=>p.id))+1;P.push({id,n,c:$("#pc").value,p:pc,s:st,d:cl($("#pd").value)||"Produk baru.",im});STANDS.find(x=>x.id==adm).ids.push(id);addOpen=false;toast(n+" ditambahkan");go("admin",1)}
+function kirim(){const g=id=>$("#"+id).value.trim(),n=g("kn"),m=g("km");if(n.length<2||m.length<10){$("#ke").textContent="Isi nama dan pesan (minimal 10 karakter).";return}
+ const t=`Halo operator Medsfood,\nNama: ${n}${g("kk")?" ("+g("kk")+")":""}\nMasalah: ${$("#kj").value}${g("ko")?"\nNo. pesanan: "+g("ko"):""}\n\n${m}`;$("#ke").textContent="";
+ if(KONTAK.wa)window.open("https://wa.me/"+KONTAK.wa+"?text="+encodeURIComponent(t),"_blank","noopener");
+ else if(KONTAK.email)location.href="mailto:"+KONTAK.email+"?subject="+encodeURIComponent("Kendala Medsfood")+"&body="+encodeURIComponent(t);
+ else{navigator.clipboard&&navigator.clipboard.writeText(t).catch(()=>{});toast("Pesan disalin. Kirim ke operator ya.")}}
+document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;
+ if(t.id=="ham")return $("#links").classList.toggle("open");
+ if(t.dataset.st){f.st=t.dataset.st;if($("#grid")){$("#chips").innerHTML=chips();grid()}else nav("katalog");return}
+ if(t.dataset.go)return nav(t.dataset.go);
+ if(t.dataset.add){add(+t.dataset.add);return}
+ if(t.dataset.d){const[i,d]=t.dataset.d.split(",").map(Number);add(i,d);return go("cart",1)}
+ if(t.dataset.open){open=open==t.dataset.open?null:t.dataset.open;return go("riwayat",1)}
+ const a=t.dataset.act;
+ if(a=="login")return login();if(a=="logout"){adm=null;addOpen=false;return go("admin")}if(a=="addp"){addOpen=true;return go("admin",1)}if(a=="cancelp"){addOpen=false;return go("admin",1)}if(a=="savep")return saveP();if(a=="kirim")return kirim();
+ if(a=="pay"){if(pay&&pay.st=="w")return;const it=Object.entries(cart).map(([i,q])=>[+i,q,src[i]||prim(+i)]);if(!it.length||it.some(([i,q])=>q>pr(i).s))return toast("Periksa stok keranjang");
+  pay={no:"MF-"+Date.now().toString(36).toUpperCase(),t:D(0),items:it,st:"w",exp:Date.now()+300000};orders.push(pay);go("cart")}
+ if(a=="sim-ok")return settle();
+ if(a=="gagal"){clearInterval(timer);pay.st="g";toast("Pembayaran gagal");return go("cart")}
+ if(a=="paynow"){bp.done=1;try{localStorage.setItem("mf.paid",bp.no+"|"+Date.now())}catch(e){}if(pay&&pay.no==bp.no&&pay.st=="w")return settle();go("bayar",1);return party()}
+ if(a=="back")return go(pay&&pay.st=="w"?"cart":"home");
+ if(a=="cancel"){clearInterval(timer);pay.st="d";go("cart")}
+ if(a=="done"){pay=null;go("riwayat")}});
+document.addEventListener("input",e=>{const i=e.target.id;
+ if(i=="q"){f.q=e.target.value;grid()}if(i=="fc"){f.c=e.target.value;grid()}if(i=="fs"){f.sort=e.target.value;grid()}if(i=="fo"){f.ok=e.target.checked;grid()}
+ if(i=="agree")$("#payb").disabled=!e.target.checked;
+ if(i=="rs"){rf.st=e.target.value;go("riwayat",1)}if(i=="rd"){rf.dt=e.target.value;go("riwayat",1)}});
+function bar(){const b=$("#cbar"),n=cnt();b.classList.toggle("on",n>0&&cur!="cart"&&cur!="bayar");if(n)b.innerHTML=`${n} item · ${rp(tot(Object.entries(cart).map(([i,q])=>[+i,q])))} <b>Checkout →</b>`}
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function fx(){$("#bar").style.transform=`scaleX(${scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`}
+addEventListener("scroll",()=>requestAnimationFrame(fx),{passive:true});
+function nav(r){go(r);fx()}
+document.addEventListener("keydown",e=>{if(e.key=="Escape"){$("#links").classList.remove("open");if(addOpen){addOpen=false;if(cur=="admin")go("admin",1)}}if(e.key=="Enter"&&e.target.id=="ap")login();});
+document.addEventListener("click",e=>{if(!e.target.closest("nav"))$("#links").classList.remove("open")});
+route()||go("home");fx();
+</script>
+</body>
+</html>
