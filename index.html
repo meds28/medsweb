@@ -174,7 +174,7 @@ const STANDS=[
 {id:"s7",n:"Stand 7",t:"Jajanan Ringan",fl:"Lt. Atas",d:"Gorengan dan jajanan hangat",ids:[8,25,26,3,4]}];
 const HASH={"kopsis": "9246c110962f7282e55074f2caf3b23f69144bd2695239b2447c95b3fc0ac263", "s1": "7d0f4f3ff1dee7a7d8e78fbd120892fc78f68844b4bccae3c3574a1b40de88e6", "s2": "4297a0c7ee964fe1ff7c0aaec94680949b7828e359b9e212001b930b204f24d6", "s3": "05a0b351134ea9fd3fd7c97218b058296d08b96313dcbcd7f90a9e486eb39cd3", "s4": "1dfd06f848947a75f859a9d9652b18244e63543ce54339a9d4aab6454b17f402", "s5": "463453ef3858e6f10448ff9b09bff9dcaf7ad57724266fd4dd741261daa23823", "s6": "f920259c6981d1731ebe801359557c618cc36de4f560f78a47c77b437be276d8", "s7": "1d1983b376ce617a0108283aaaeb72b6745fdd7af3fa3f0a74996ff8964bd309"};
 const prim=id=>STANDS.find(s=>s.ids.includes(id)).id;
-const KONTAK={wa:"",email:""}; // isi wa: "62812xxxxxxx" atau email: "operator@sekolah.sch.id"
+const KONTAK={wa:"",email:"Kelompok.9.7b@gmail.com"}; // isi wa: "62812xxxxxxx" atau email: "operator@sekolah.sch.id"
 function rng(s){return()=>(s=(s*1664525+1013904223)>>>0)/4294967296}
 const SALES=(()=>{const r=rng(7),a=[];STANDS.forEach(s=>{for(let d=0;d<7;d++){const n=2+Math.floor(r()*5);for(let k=0;k<n;k++)a.push({d,sid:s.id,pid:s.ids[Math.floor(Math.pow(r(),1.8)*s.ids.length)],q:1+Math.floor(r()*3)})}});return a})();
 const rows=sid=>[...SALES.filter(x=>x.sid==sid),...orders.filter(o=>o.st=="b"&&!o.demo).flatMap(o=>o.items.map(([i,q,s])=>({d:0,sid:s||prim(i),pid:i,q}))).filter(x=>x.sid==sid)];
